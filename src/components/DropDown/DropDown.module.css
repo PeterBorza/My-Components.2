@@ -1,0 +1,10 @@
+.container {
+  width: 50%;
+  height: 50vh;
+  border: 1px solid black;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  margin: 10vh auto;
+}
+/*# sourceMappingURL=DropDown.module.css.map */

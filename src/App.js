@@ -23,95 +23,90 @@ import ls10 from "./images/ls10.jpg";
 const pics = [ls1, ls2, ls3, ls4, ls5, ls6, ls7, ls8, ls9, ls10];
 
 const App = () => {
-  const [counter, setCounter] = useState(0);
-  const minusCount = () => {
-    setCounter((prev) => prev - 1);
-  };
-  const plusCount = () => {
-    setCounter((prev) => prev + 1);
-  };
-  const resetHandler = () => {
-    setCounter(0);
-  };
-  const buttons = [
-    {
-      id: 1,
-      content: "Minus",
-      handler: minusCount,
-    },
-    {
-      id: 2,
-      content: "Plus",
-      handler: plusCount,
-    },
-    {
-      id: 3,
-      content: "Reset",
-      handler: resetHandler,
-    },
-  ];
-  const linkOrganizer = [
-    {
-      path: "/",
-      exact: true,
-      component: HomePage,
-      id: 1,
-    },
-    {
-      path: "/imagebox",
-      exact: true,
-      component: ImageBox,
-      id: 2,
-    },
-    {
-      path: "/cats",
-      exact: false,
-      component: Cats,
-      id: 3,
-    },
-    {
-      path: "/dropdown",
-      exact: false,
-      component: DropDown,
-      id: 4,
-    },
-    {
-      path: "/imagebox/:id",
-      exact: false,
-      component: ImageDetail,
-      id: 5,
-    },
-  ];
+    const [counter, setCounter] = useState(0);
 
-  const renderLink = (item) => (
-    <Route
-      key={item.id}
-      path={item.path}
-      exact={item.exact}
-      component={item.component}
-    />
-  );
+    const buttons = [
+        {
+            id: 1,
+            content: "Minus",
+            handler: () => {
+                setCounter(prev => prev - 1);
+            },
+        },
+        {
+            id: 2,
+            content: "Plus",
+            handler: () => {
+                setCounter(prev => prev + 1);
+            },
+        },
+        {
+            id: 3,
+            content: "Reset",
+            handler: () => {
+                setCounter(0);
+            },
+        },
+    ];
+    const linkOrganizer = [
+        {
+            path: "/",
+            exact: true,
+            component: HomePage,
+            id: 1,
+        },
+        {
+            path: "/imagebox",
+            exact: true,
+            component: ImageBox,
+            id: 2,
+        },
+        {
+            path: "/cats",
+            exact: false,
+            component: Cats,
+            id: 3,
+        },
+        {
+            path: "/dropdown",
+            exact: false,
+            component: DropDown,
+            id: 4,
+        },
+        {
+            path: "/imagebox/:id",
+            exact: false,
+            component: ImageDetail,
+            id: 5,
+        },
+    ];
 
-  return (
-    <div className="App">
-      <MyContext.Provider
-        value={{
-          pics,
-          buttons,
-          minusCount,
-          plusCount,
-          resetHandler,
-          counter,
-          setCounter,
-        }}
-      >
-        <Router>
-          <Nav />
-          <Switch>{linkOrganizer.map(renderLink)}</Switch>
-        </Router>
-      </MyContext.Provider>
-    </div>
-  );
+    const renderLink = item => (
+        <Route
+            key={item.id}
+            path={item.path}
+            exact={item.exact}
+            component={item.component}
+        />
+    );
+
+    return (
+        <div className="App">
+            <MyContext.Provider
+                value={{
+                    pics,
+                    buttons,
+                    counter,
+                    setCounter,
+                }}
+            >
+                <Router>
+                    <Nav />
+                    <Switch>{linkOrganizer.map(renderLink)}</Switch>
+                </Router>
+            </MyContext.Provider>
+        </div>
+    );
 };
 
 export default App;

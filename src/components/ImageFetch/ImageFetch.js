@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Button from "../Button/Button";
 // import useFetch from "../useFetch/useFetch";
 import styles from "./ImageFetch.module.scss";

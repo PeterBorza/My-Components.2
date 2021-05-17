@@ -7,27 +7,20 @@ import Button from "../Button/Button";
 const { landScapes } = styles;
 
 const HomePage = () => {
-  const {
-    buttons,
-    minusCount,
-    plusCount,
-    resetHandler,
-    counter,
-    setCounter,
-  } = useContext(MyContext);
+    const { buttons, counter } = useContext(MyContext);
 
-  return (
-    <div className={landScapes}>
-      <div className="buttonWrapper">
-        {buttons.map(({ id, content, handler }) => (
-          <Button key={id} handler={handler}>
-            {content}
-          </Button>
-        ))}
-        <span>{counter}</span>
-      </div>
-    </div>
-  );
+    return (
+        <div className={landScapes}>
+            <div className="buttonWrapper">
+                {buttons.map(({ id, content, handler }) => (
+                    <Button key={id} handler={handler}>
+                        {content}
+                    </Button>
+                ))}
+                <span>{counter}</span>
+            </div>
+        </div>
+    );
 };
 
 export default HomePage;

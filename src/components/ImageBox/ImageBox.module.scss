@@ -1,17 +1,8 @@
+@import "../variables.scss";
+
 .landScapes {
-  position: relative;
-  width: 90%;
-  min-height: 80vh;
-  padding: 0.5rem;
-  border: 3px solid rgba(128, 128, 128, 0.5);
-  border-radius: 5px;
-  margin: 1rem auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 0.5rem;
-  background: rgba(128, 128, 128, 0.2);
-  box-shadow: 1px 1px 4px rgba(128, 128, 128, 0.5);
-  &:hover {
-    box-shadow: 3px 3px 10px rgba(128, 128, 128, 0.8);
-  }
+    @include landScape;
+    @include GTC(300px);
+    overflow: hidden;
+    overflow-y: scroll;
 }

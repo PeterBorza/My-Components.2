@@ -1,0 +1,6 @@
+@import "../../variables.scss";
+
+.rubik_color {
+    @include flexCenter(column);
+    color: white;
+}

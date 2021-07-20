@@ -1,54 +1,98 @@
 $bd: 1px solid black;
+$slide: 5vh;
+@function transit($prop, $speed) {
+    @return $prop $speed ease-out;
+}
+
 nav {
-  width: 100%;
-  background-color: rgba(61, 70, 73, 0.678);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 7vh;
-  ul {
-    width: 40%;
+    position: fixed;
+    left: 0;
+    top: -$slide;
+    width: 100%;
+    background-color: rgba(61, 70, 73, 0.678);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    li {
-      list-style: none;
-      text-decoration: none;
-      border-left: $bd;
-      padding: 0.2rem;
+    height: $slide;
+    z-index: 500;
+    // transition: top 200ms ease-out;
+    transition: transit(top, 200ms);
+    ul {
+        width: 40%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        li {
+            list-style: none;
+            text-decoration: none;
+            border-left: $bd;
+            padding: 0.2rem;
+        }
     }
-  }
+    &:hover {
+        top: 0;
+        &::after {
+            color: transparent;
+        }
+    }
+    &::after {
+        position: absolute;
+        content: "menu";
+        height: 3vh;
+        width: 35%;
+        display: grid;
+        place-items: center;
+        left: 74%;
+        transform: translateX(-50%);
+        bottom: -3vh;
+        color: brown;
+        cursor: pointer;
+        transition: transit(color, 150ms);
+        animation: react 2000ms ease-in-out infinite alternate-reverse;
+    }
+    @keyframes react {
+        0% {
+            color: rgba(61, 70, 73, 0.678);
+        }
+        100% {
+            color: rgba(182, 211, 221, 0.678);
+        }
+    }
 }
 .navLinks {
-  color: white;
-  text-decoration: none;
-  font-family: monospace;
-  font-size: 1.5rem;
-  &:hover {
-    color: coral;
-  }
+    color: white;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 1.5rem;
+    &:hover {
+        color: coral;
+    }
 }
 .logo {
-  // border: $bd;
-  color: purple;
-  width: 35%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  img {
-    width: 30%;
-    border-radius: 10px;
-    opacity: 0.3;
-  }
+    // border: $bd;
+    color: purple;
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    img {
+        width: 20%;
+        border-radius: 10px;
+        opacity: 0.3;
+    }
+    h2 {
+        color: white;
+        font-size: 2rem;
+    }
 }
 
 @media only screen and(max-width: 800px) {
-  .logo {
-    h2 {
-      font-size: 1rem;
+    .logo {
+        h2 {
+            font-size: 1rem;
+        }
     }
-  }
-  .navLinks {
-    font-size: 1rem;
-  }
+    .navLinks {
+        font-size: 1rem;
+    }
 }

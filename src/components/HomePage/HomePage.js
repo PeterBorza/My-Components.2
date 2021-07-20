@@ -1,17 +1,17 @@
 // import { useState } from 'react';
 import styles from "./HomePage.module.scss";
-import { MyContext } from "../../MyContext";
+import { ButtonContext } from "../../context/ButtonContext";
 import { useContext } from "react";
 import Button from "../Button/Button";
 
-const { landScapes } = styles;
+const { landScapes, buttonWrapper } = styles;
 
 const HomePage = () => {
-    const { buttons, counter } = useContext(MyContext);
+    const [buttons, counter] = useContext(ButtonContext);
 
     return (
         <div className={landScapes}>
-            <div className="buttonWrapper">
+            <div className={buttonWrapper}>
                 {buttons.map(({ id, content, handler }) => (
                     <Button key={id} handler={handler}>
                         {content}

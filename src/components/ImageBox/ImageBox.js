@@ -1,9 +1,7 @@
+import { ImageContext } from "../../context/ImageContext";
 import { Link } from "react-router-dom";
 import styles from "./ImageBox.module.scss";
-import { MyContext } from "../../MyContext";
 import { useContext } from "react";
-
-const { landScapes } = styles;
 
 const renderLinks = arr =>
     arr.map((item, index) => (
@@ -15,8 +13,9 @@ const renderLinks = arr =>
     ));
 
 const ImageBox = () => {
-    const { pics } = useContext(MyContext);
-    return <div className={landScapes}>{renderLinks(pics)}</div>;
+    const pics = useContext(ImageContext);
+    const renderPics = renderLinks(pics);
+    return <div className={styles.landScapes}>{renderPics}</div>;
 };
 
 export default ImageBox;

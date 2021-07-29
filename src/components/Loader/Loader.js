@@ -1,16 +1,17 @@
 import React from "react";
-import styles from "./Loader.module.scss";
+
+import { loader_bg, loader_dots, dot } from "./Loader.module.scss";
 
 const Loader = () => {
     const loadingDotCount = [0, 1, 2];
 
     return (
-        <div className={styles.loader_bg}>
-            <div className={styles.loader_dots}>
+        <div className={loader_bg}>
+            <div className={loader_dots}>
                 {loadingDotCount.map((_, idx) => (
                     <div
                         key={idx}
-                        className={styles.dot}
+                        className={dot}
                         style={{ animationDelay: `${idx * 130}ms` }}
                     ></div>
                 ))}

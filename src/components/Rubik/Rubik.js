@@ -1,6 +1,8 @@
 import React from "react";
+
+import { Sides } from "../index";
+
 import styles from "./Rubik.module.scss";
-import RubikSides from "./RubikSides";
 
 // const rZ = angle => `rotateZ(${angle}deg)`;
 const rX = angle => `rotateX(${angle}deg)`;
@@ -45,7 +47,7 @@ const Rubik = () => {
                             className={styles.box}
                             style={{ transform: item }}
                         >
-                            <RubikSides colors={sidesBackgroundColor} />
+                            <Sides colors={sidesBackgroundColor} />
                         </div>
                     ))}
                 </div>

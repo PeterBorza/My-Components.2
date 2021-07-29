@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import styles from "./Nav.module.scss";
+
 import logoImg from "../../images/w1.jpg";
-const { navLinks, logo } = styles;
-const Nav = () => {
+
+import { navLinks, logo } from "./Nav.module.scss";
+
+const Nav = ({ links }) => {
     return (
         <nav>
             <div className={logo}>
@@ -10,21 +12,17 @@ const Nav = () => {
                 <h2>React Router Dom</h2>
             </div>
             <ul>
-                <Link className={navLinks} to="/">
-                    <li>Home</li>
-                </Link>
-                <Link className={navLinks} to={`imagebox`}>
-                    <li>Image-Box</li>
-                </Link>
-                <Link className={navLinks} to="/cats">
-                    <li>Cats</li>
-                </Link>
-                <Link className={navLinks} to="/rubik">
-                    <li>Rubik</li>
-                </Link>
-                <Link className={navLinks} to="/digits">
-                    <li>Digits</li>
-                </Link>
+                {links
+                    .filter(link => link.isNavLink === true)
+                    .map(link => (
+                        <Link
+                            className={navLinks}
+                            key={`link-${link.title}`}
+                            to={link.path}
+                        >
+                            <li>{link.title}</li>
+                        </Link>
+                    ))}
             </ul>
         </nav>
     );

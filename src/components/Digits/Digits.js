@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
+
+import { DigitContext } from "../../context";
+
 import styles from "./Digits.module.scss";
 import classNames from "classnames";
-import { DigitContext } from "../../context/digit-context";
 
 const Digits = () => {
     const [digits, keyPressed, setKeyPressed] = useContext(DigitContext);
@@ -25,7 +27,7 @@ const Digits = () => {
 
     return (
         <div className={styles.landScapes}>
-            <div className={styles.container} tabIndex="0" onKeyDown={getKey}>
+            <div className={styles.container} tabIndex={0} onKeyDown={getKey}>
                 <div className={styles.digit_box}>
                     {selectedNumber(keyPressed)}
                 </div>

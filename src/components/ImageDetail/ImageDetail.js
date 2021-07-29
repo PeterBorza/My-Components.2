@@ -1,7 +1,9 @@
-import styles from "./ImageDetail.module.scss";
-import { useParams, Link } from "react-router-dom";
-import { ImageContext } from "../../context/ImageContext";
 import { useContext } from "react";
+
+import { useParams, Link } from "react-router-dom";
+import { ImageContext } from "../../context";
+
+import styles from "./ImageDetail.module.scss";
 
 const ImageDetail = () => {
     const { id } = useParams();

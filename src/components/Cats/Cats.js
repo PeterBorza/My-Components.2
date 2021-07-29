@@ -1,5 +1,5 @@
 import styles from "./Cats.module.scss";
-import ImageFetch from "../ImageFetch";
+import { ImageFetch } from "../index";
 
 const Cats = () => {
     return (

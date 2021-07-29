@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "./RubikSides.module.scss";
+
+import { rubik_color } from "./RubikSides.module.scss";
 
 const RubikSides = ({ colors }) => {
     return (
@@ -7,7 +8,7 @@ const RubikSides = ({ colors }) => {
             {colors.map((item, i) => (
                 <div
                     key={i}
-                    className={styles.rubik_color}
+                    className={rubik_color}
                     style={{ backgroundColor: `${item}` }}
                 >
                     {i + 1}

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Button from "../Button";
-import Loader from "../Loader";
+import { Button, Loader } from "../index";
+
 import styles from "./ImageFetch.module.scss";
 
 const ImageFetch = () => {

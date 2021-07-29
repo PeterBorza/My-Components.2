@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default function useKeyboardEvent(key, callback) {
+export const useKeyboardEvent = (key, callback) => {
     useEffect(() => {
         const handleKeyPress = e => {
             if (e.keyCode === key) {
@@ -16,4 +16,4 @@ export default function useKeyboardEvent(key, callback) {
             document.removeEventListener("keydown", handleKeyPress);
         };
     });
-}
+};

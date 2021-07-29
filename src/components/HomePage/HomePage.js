@@ -1,10 +1,10 @@
 // import { useState } from 'react';
-import styles from "./HomePage.module.scss";
-import { ButtonContext } from "../../context/ButtonContext";
 import { useContext } from "react";
-import Button from "../Button/Button";
 
-const { landScapes, buttonWrapper } = styles;
+import { ButtonContext } from "../../context";
+import { Button } from "../index";
+
+import { landScapes, buttonWrapper } from "./HomePage.module.scss";
 
 const HomePage = () => {
     const [buttons, counter] = useContext(ButtonContext);

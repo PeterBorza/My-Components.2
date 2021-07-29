@@ -13,7 +13,7 @@ import ls10 from "../images/ls10.jpg";
 
 export const ImageContext = createContext(null);
 
-export const ImageContextProvider = ({ children }) => {
+export const ImageData = ({ children }) => {
     const pics = [ls1, ls2, ls3, ls4, ls5, ls6, ls7, ls8, ls9, ls10];
 
     return (

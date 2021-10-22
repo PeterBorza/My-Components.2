@@ -1,4 +1,6 @@
 $iconDistanceFromContainer: 1.5rem;
+$baseColor: rgba(36, 33, 33, 0.3);
+$hoverColor: #f3ececde;
 
 .container {
 	position: relative;
@@ -21,6 +23,12 @@ $iconDistanceFromContainer: 1.5rem;
 	&__animated_image {
 		animation: slide 200ms linear forwards;
 	}
+	&:hover {
+		.nextIcon,
+		.prevIcon {
+			color: $hoverColor;
+		}
+	}
 	@keyframes slide {
 		from {
 			transform: scale(1.05);
@@ -38,15 +46,12 @@ $iconDistanceFromContainer: 1.5rem;
 	top: 50%;
 	transform: translateY(-50%);
 	left: $iconDistanceFromContainer;
-	font-size: 1.2rem;
-	border-radius: 50%;
+	color: $baseColor;
+	font-size: 1.5rem;
 	padding: 2px;
 	cursor: pointer;
 	user-select: none;
 	transition: color 100ms ease-out;
-	&:hover {
-		color: rgba(206, 25, 25, 0.767);
-	}
 }
 .nextIcon {
 	left: calc(100% - 1rem - $iconDistanceFromContainer);
